@@ -1,0 +1,19 @@
+{
+  "name": "js-util-demos",
+  "version": "1.0.0",
+  "description": "js-util-demos",
+  "main": "demo.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fkhan77/js-utility-demo.git"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Farhad Khan",
+  "license": "ISC"
+}
