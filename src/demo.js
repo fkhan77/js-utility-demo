@@ -1,5 +1,6 @@
 // Load the full build. Loads every lodash method. 24kb.
 const _ = require("lodash");
+const { partition } = require("lodash");
 // Load the core build. Loads 63 most commonly used methods. 4kb.
 // const _ = require("lodash/core");
 
@@ -8,7 +9,7 @@ const _ = require("lodash");
 // const object = require("lodash/object");
 
 // Cherry-pick methods for smaller bundle size.
-// const partition = require("lodash/at");
+// const partition = require("lodash/partition");
 
 // Partitioning
 _.partition([1, 2, 3, 4, 5, 6], (element) => element % 3 === 0);
@@ -37,7 +38,7 @@ addThree(1)(2)(3);
 // not a function
 
 function curriedAddThree(x) {
-  let x = 1;
+  let x = 3;
   return function (y) {
     if (y) {
       return curriedAddThree(x + y);
@@ -47,14 +48,14 @@ function curriedAddThree(x) {
   };
 }
 
-curriedAddThree(1, 2, 3);
-// ?
+curriedAddThree(1, 2, 3)();
+// 1
 
-curriedAddThree(1)(2, 3);
-// ?
+curriedAddThree(1)(2, 3)();
+// 3
 
-curriedAddThree(1)(2)(3);
-// ?
+curriedAddThree(1)(2)(3)();
+// 6
 
 function curry(f) {
   return function (a) {
@@ -69,13 +70,13 @@ function curry(f) {
 const improvedCurriedAddThree = curry(addThree);
 
 improvedCurriedAddThree(1, 2, 3);
-// ?
+// function
 
 improvedCurriedAddThree(1)(2, 3);
-// ?
+// function
 
 improvedCurriedAddThree(1)(2)(3);
-// ?
+// 6
 
 const curriedLodashAddThree = _.curry(addThree);
 
