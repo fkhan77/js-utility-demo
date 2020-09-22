@@ -1,6 +1,6 @@
 // Load the full build. Loads every lodash method. 24kb.
 const _ = require("lodash");
-const { partition } = require("lodash");
+
 // Load the core build. Loads 63 most commonly used methods. 4kb.
 // const _ = require("lodash/core");
 
@@ -24,6 +24,7 @@ _.defaults({ a: 42 }, { b: "foo" }, { a: "bar", c: "banana" });
 // { a:42, b: "foo", c: "banana" }
 
 // Currying
+
 function addThree(a, b, c) {
   return a + b + c;
 }
@@ -37,6 +38,7 @@ addThree(1)(2, 3);
 addThree(1)(2)(3);
 // not a function
 
+// Native currying example 1
 function curriedAddThree(x) {
   let x = 3;
   return function (y) {
@@ -57,6 +59,7 @@ curriedAddThree(1)(2, 3)();
 curriedAddThree(1)(2)(3)();
 // 6
 
+// Native currying example 2
 function curry(f) {
   return function (a) {
     return function (b) {
@@ -78,12 +81,13 @@ improvedCurriedAddThree(1)(2, 3);
 improvedCurriedAddThree(1)(2)(3);
 // 6
 
+// Lodash currying example
 const curriedLodashAddThree = _.curry(addThree);
 
 curriedLodashAddThree(1, 2, 3);
 // 6
 
-curriedAddThree(1)(2, 3);
+curriedLodashAddThree(1)(2, 3);
 // 6
 
 curriedLodashAddThree(1)(2)(3);
