@@ -1,5 +1,5 @@
 # js-utility-demo
-JS scripts for an accompanying talk on using JavaScript utility libraries
+JS scripts for an accompanying talk on using JavaScript utility libraries. Contains demos of some commonly used Lodash methods as well as a comparison of native currying against Lodash currying. Also contains some performance tests for comparing native JavaScript and Lodash method performance. 
 
 ## Setup
 `$ npm install`
